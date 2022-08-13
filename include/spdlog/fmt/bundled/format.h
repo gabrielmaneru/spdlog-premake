@@ -2049,7 +2049,7 @@ FMT_CONSTEXPR20 auto write(OutputIt out, T value) -> OutputIt {
   }
 
   constexpr auto specs = basic_format_specs<Char>();
-  uint mask = exponent_mask<floaty>();
+  constexpr uint mask = exponent_mask<floaty>();
   if ((bits & mask) == mask)
     return write_nonfinite(out, std::isinf(value), specs, fspecs);
 

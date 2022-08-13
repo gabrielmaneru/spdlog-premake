@@ -294,7 +294,7 @@ template <int SHIFT = 0> FMT_CONSTEXPR fp normalize(fp value) {
     --value.e;
   }
   // Subtract 1 to account for hidden bit.
-  const auto offset =
+  constexpr auto offset =
       fp::num_significand_bits - num_significand_bits<double>() - SHIFT - 1;
   value.f <<= offset;
   value.e -= offset;
