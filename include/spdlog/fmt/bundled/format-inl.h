@@ -255,7 +255,7 @@ struct fp {
   template <typename Float, FMT_ENABLE_IF(is_supported<Float>::value)>
   FMT_CONSTEXPR bool assign(Float n) {
     // Assume float is in the format [sign][exponent][significand].
-    const int num_float_significand_bits =
+      constexpr int num_float_significand_bits =
         detail::num_significand_bits<Float>();
     const uint64_t implicit_bit = 1ULL << num_float_significand_bits;
     const uint64_t significand_mask = implicit_bit - 1;
@@ -287,7 +287,7 @@ struct fp {
 // Normalizes the value converted from double and multiplied by (1 << SHIFT).
 template <int SHIFT = 0> FMT_CONSTEXPR fp normalize(fp value) {
   // Handle subnormals.
-  const uint64_t implicit_bit = 1ULL << num_significand_bits<double>();
+    constexpr uint64_t implicit_bit = 1ULL << num_significand_bits<double>();
   const auto shifted_implicit_bit = implicit_bit << SHIFT;
   while ((value.f & shifted_implicit_bit) == 0) {
     value.f <<= 1;
