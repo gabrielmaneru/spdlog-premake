@@ -24,3 +24,9 @@ project "spdlog"
 			"SPDLOG_COMPILED_LIB",
 			"_CRT_SECURE_NO_WARNINGS"
 		}
+
+	filter "configurations:debug"
+		symbols "On"
+				
+	filter "configurations:release"
+		optimize "On"
