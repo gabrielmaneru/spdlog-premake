@@ -8,7 +8,6 @@ project "spdlog"
 
 	files
 	{
-		"include/spdlog/**.h",
 		"src/**.cpp"
 	}
 	
